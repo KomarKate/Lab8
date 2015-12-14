@@ -1,0 +1,36 @@
+<project name="Project" default="UMLproject">
+
+	<target name="UMLproject" depends="compile">
+		<jar destfile="project/bin/program.jar">
+			<fileset dir="project/classes">
+				<include name="**/*.class" />
+				
+			</fileset>
+			
+			<manifest>
+				<attribute name="Main-Class" value="classModel.Main" />
+			</manifest>
+
+		</jar>
+
+	</target>
+
+	<target name="compile" depends="clear">
+		<mkdir dir="project" />
+		<mkdir dir="project/classes" />
+		<mkdir dir="project/bin" />
+		<javac destdir="project/classes" srcdir="src/"  debug="true" includeantruntime="true">
+			<classpath>
+			    <path id="org.junit" location="C:\Users\User\Downloads\eclipse\plugins\org.junit_4.11.0.v201303080030\junit.jar" /> 
+			  </classpath>
+		
+
+		</javac>
+
+	</target>
+
+	<target name="clear">
+		<delete dir="project" />
+
+	</target>
+</project>
